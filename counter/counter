@@ -1,1 +1,44 @@
 
+const int buttonPin = 2; 
+const int buzzer= 3;
+
+int counter = 0;       
+int buttonState = 0;         
+int lastButtonState = 0;     
+
+void setup() {
+
+  pinMode(buttonPin, INPUT);
+  pinMode(buzzer,OUTPUT);
+
+  Serial.begin(9600);
+  Serial.println();
+}
+
+void loop() {
+
+  buttonState = digitalRead(buttonPin);
+
+ 
+  if (buttonState != lastButtonState) {
+    
+
+    if (buttonState == HIGH) {
+      counter++;
+     
+
+
+      Serial.print("Count: ");
+      Serial.println(counter);
+       digitalWrite(buzzer,HIGH);
+      delay(250);
+    digitalWrite(buzzer,LOW);
+      
+    }
+    
+  
+    delay(50);
+  }
+
+  lastButtonState = buttonState;
+}
