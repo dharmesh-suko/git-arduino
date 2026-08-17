@@ -1,0 +1,41 @@
+const int flamesensorpin = A0;
+int buzzer = 9;
+int red = 8;
+int yellow = 7;
+int blue = 6;
+
+void setup() {
+
+  pinMode(buzzer,OUTPUT);
+  pinMode(red, OUTPUT);
+  pinMode(yellow, OUTPUT);
+  pinMode(blue, OUTPUT);
+  
+}
+
+void loop() {
+
+  int fire = analogRead(flamesensorpin); 
+  
+  if (fire < 100) {
+    digitalWrite(buzzer, HIGH);
+    digitalWrite(red, HIGH);
+    digitalWrite(yellow, LOW);
+    digitalWrite(blue, LOW);
+  
+  } else if (fire >= 100 && fire < 500) {
+    digitalWrite(yellow, HIGH);
+    digitalWrite(red, LOW);
+    digitalWrite(blue,LOW);
+    digitalWrite(buzzer,LOW);
+    
+  } else {
+    digitalWrite(blue, HIGH);
+    digitalWrite(red,LOW);
+    digitalWrite(yellow, LOW);
+    digitalWrite(buzzer,LOW);
+  
+  }
+
+  delay(500);
+}
