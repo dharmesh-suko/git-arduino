@@ -1,1 +1,20 @@
+int flamesensor = 9;
+int buzzer = 6;
+ 
+ void setup(){
+  pinMode(flamesensor, INPUT);
+  pinMode(buzzer, OUTPUT);
 
+ }
+
+ void loop(){
+  int AB = digitalRead(flamesensor);
+
+  if(AB == LOW){
+    digitalWrite(buzzer, HIGH);
+  }
+    else{
+digitalWrite(buzzer, LOW);
+    }
+  }
+ 
