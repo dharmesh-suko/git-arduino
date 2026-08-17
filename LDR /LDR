@@ -1,0 +1,22 @@
+int ldrpin = A0;
+int ledpin = 13;
+
+void setup(){
+ 
+  pinMode(ledpin,OUTPUT);
+  pinMode(ldrpin,INPUT);
+}
+
+void loop(){
+  int ldrv = analogRead(ldrpin);
+
+
+  if (ldrv>500){
+    digitalWrite(ledpin,LOW);
+    
+  }
+  else {
+    digitalWrite(ledpin,HIGH);
+  }
+  delay(10);
+}
