@@ -1,0 +1,24 @@
+
+const int ldrPin = A0;  
+const int ledPin = 3;   
+
+
+const int darkThreshold = 200;  
+const int lightThreshold = 600; 
+
+void setup() {       
+  pinMode(ledPin, OUTPUT); 
+}
+void loop() {
+  int ldrValue = analogRead(ldrPin); 
+    
+  int constrainedLdr = constrain(ldrValue, darkThreshold, lightThreshold);
+
+  int ledBrightness = map(constrainedLdr, darkThreshold, lightThreshold, 0, 255);
+
+  analogWrite(ledPin, ledBrightness);
+
+ 
+  delay(10); 
+}
+ 
